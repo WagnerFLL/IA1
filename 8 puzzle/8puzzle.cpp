@@ -108,7 +108,9 @@ int main() {
     for (int i = 0; i < 3; i++)
         for (int j = 0; j < 3; j++)
             scanf("%d",&initial[i][j]);
- 
+    
+    printMatrix(initial);
+    
     int final[3][3] = {
         {1, 2, 3},
         {5, 8, 6},
