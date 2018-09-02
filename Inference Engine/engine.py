@@ -55,6 +55,26 @@ def backward(quest):
         return result
 
 
+def forward():
+    elements = []
+
+    for x in rule.keys():
+        elements.append(x)
+
+    while elements:
+        x = elements.pop(0)
+        for i in rule[x]:
+            result = True
+            for k in i:
+                if k not in knowledge:
+                    break
+                result = result and knowledge[k]
+            else:
+                build_knowledge(x, result)
+                break
+            elements.append(x)
+
+
 print("Base de conhecimento: ")
 print("Ex.: 'A' ou '!A' ")
 enter = input()
@@ -69,15 +89,23 @@ while enter != '':
     build_rules(enter)
     enter = input()
 
-print(rule)
-print(knowledge)
+print("Escolha o modo de operação:\n " +
+      "1 - Encadeamento para frente.\n" +
+      "2 - Encadeamento para trás. ")
+choice = int(input())
 
 print("Pergunte:")
 print("Ex.: 'A', 'B'")
 enter = input()
 while enter != '':
+
     if enter in knowledge:
         print(knowledge[enter])
     else:
-        print(backward(enter))
+        if choice == 1:
+            forward()
+            print(knowledge[enter])
+        else:
+            print(backward(enter))
+
     enter = input()
