@@ -1,0 +1,80 @@
+Exemplo 1:
+
+Base:
+A
+B
+C
+
+Regras:
+A ^ B ^ C = D
+D ^ E = F
+A ^ B  = E
+F ^ !A = I
+
+-------------------------------
+Exemplo 2:
+
+Base:
+A
+L
+K
+
+Regras:
+!A ^ K ^ L = B
+!C ^ A = H
+H ^ L  = F
+B ^ !L = C
+F ^ B ^ C = T
+T ^ H = J
+
+Respostas esperadas:
+A = True
+B = False
+C = False
+F = True
+L = True
+H = True
+T = False
+K = True
+J = False
+
+-------------------------------
+Exemplo 3:
+
+Base:
+!C
+!A
+T
+B
+
+Regras:
+B ^ C = H
+!H ^ T ^ B = O
+O ^ H = L
+!L ^ !H = X
+X ^ A ^ T = U
+U ^ O = I
+
+Respostas esperadas:
+A = False
+B = True
+C = False
+H = False
+I = False
+L = False
+O = True
+U = False
+T = True
+X = True
+
+-------------------------------
+Exemplo 4:
+
+Base:
+joao
+maria
+!glauber
+
+Regras:
+joao ^ glauber = !caca
+caca ^ maria = guga
